@@ -4,14 +4,4 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>Test</servlet-name>
-  	<display-name>Test</display-name>
-  	<description></description>
-  	<servlet-class>com.statistiche.test.Test</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>Test</servlet-name>
-  	<url-pattern>/Test</url-pattern>
-  </servlet-mapping>
 </web-app>
