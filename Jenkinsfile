@@ -1,14 +1,3 @@
-// define Logrotation and scm Polling
-properties(
-    [
-        [
-            $class: 'BuildDiscarderProperty',
-            strategy: [$class: 'LogRotator', numToKeepStr: '10']
-        ],
-        pipelineTriggers([cron('H/5 * * * *')]),
-    ]
-)
-
 try{
     node('maven') {
       stage 'build'
