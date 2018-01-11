@@ -33,7 +33,11 @@ try{
                         //sh 'mvn build'
                 } 
                 stage('Deploy'){
-                        //sh 'mvn build'
+                        //sh 'oc deploy'
+                } 
+                
+                stage('Test con Selenium'){
+                        //sh 'java selenium-test'
                 } 
                 
         }
