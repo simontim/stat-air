@@ -1,6 +1,6 @@
 try{
         node {
-                stage('build'){
+                stage('Aggiornamenti SCM '){
                         git 'https://github.com/simontim/stat-air.git'
                 } 
    
@@ -28,7 +28,14 @@ try{
                         }
         
                 }
-      
+                
+                stage('Build'){
+                        //sh 'mvn build'
+                } 
+                stage('Deploy'){
+                        //sh 'mvn build'
+                } 
+                
         }
 } catch (Exception e) {
     // Notify
