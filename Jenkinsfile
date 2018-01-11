@@ -1,33 +1,35 @@
 try{
-        node('nodo1'){
-        stage('build'){
-        //openshiftBuild(buildConfig: 'myphp', showBuildLogs: 'true'  
-        git 'https://github.com/simontim/stat-air.git'
-        } 
-        
-        stage('Test di codice con SonarQube'){
+        node {
+                stage('build'){
+                        git 'https://github.com/simontim/stat-air.git'
+                } 
+   
+                stage('Test di codice con SonarQube'){
     
-        def x = fileExists 'sonar-project.properties'
+                        def x = fileExists 'sonar-project.properties'
         
-        assert x == true //blocca la pipeline se non è stato configurato il file di properties
+                        assert x == true //blocca la pipeline se non è stato configurato il file di properties
         
-        //input ''
+                        //input ''
         
-        def scannerHome = tool 'scanner';
+                        def scannerHome = tool 'scanner';
     
-        println("${scannerHome}")
+                        println("${scannerHome}")
     
-        withSonarQubeEnv {
+                        withSonarQubeEnv {
             
-            sh "ls"
+                        sh "ls"
             
-            sh "${scannerHome}/bin/sonar-scanner"
+                        sh "${scannerHome}/bin/sonar-scanner"
         
-            //build job: 'Quality-Gate', quietPeriod: 1
+                        //build job: 'Quality-Gate', quietPeriod: 1
         
-         }
+        
+                        }
+        
+                }
+      
         }
-      }
 } catch (Exception e) {
     // Notify
     echo "send error mail to jenkins@"
