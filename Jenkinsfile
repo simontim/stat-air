@@ -1,5 +1,5 @@
 try{
-        node('nodo1'){
+        node {
         stage('build'){
         //openshiftBuild(buildConfig: 'myphp', showBuildLogs: 'true'  
         git 'https://github.com/simontim/stat-air.git'
