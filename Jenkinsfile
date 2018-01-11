@@ -10,25 +10,10 @@ properties(
 )
 
 try{
-    node('nodejs') {
-
-        stage('Checkout'){
-            checkout scm
+    node('maven') {
+      stage 'build'
+        openshiftBuild(buildConfig: 'myphp', showBuildLogs: 'true')
         }
-        // run test in Jenkins Slave
-        stage('buildAndTest'){
-             sh "npm build"
-        }
-
-        // trigger Build on OpenShift
-        stage('buildOnOpenShift'){
-             openshiftBuild(buildConfig: '${NAME}', showBuildLogs: 'true')
-        }
-
-        stage('deploy') {
-            openshiftDeploy(deploymentConfig: '${NAME}')
-        }
-    }
 } catch (Exception e) {
     // Notify
     echo "send error mail to jenkins@"
