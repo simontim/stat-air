@@ -1,5 +1,5 @@
 try{
-        node('maven'){
+        node('nodo1'){
         stage('build'){
         //openshiftBuild(buildConfig: 'myphp', showBuildLogs: 'true'  
         git 'https://github.com/simontim/stat-air.git'
