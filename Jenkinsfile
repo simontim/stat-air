@@ -1,8 +1,10 @@
 try{
     node('maven') {
       stage 'build'
-        openshiftBuild(buildConfig: 'myphp', showBuildLogs: 'true')
-        }
+        //openshiftBuild(buildConfig: 'myphp', showBuildLogs: 'true'  
+        git 'https://github.com/simontim/Sample-for-nexus.git'
+        } 
+    }
 } catch (Exception e) {
     // Notify
     echo "send error mail to jenkins@"
