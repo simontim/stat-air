@@ -1,6 +1,6 @@
 try{
     node('maven') {
-      stage 'build'
+        stage('build'){
         //openshiftBuild(buildConfig: 'myphp', showBuildLogs: 'true'  
         git 'https://github.com/simontim/Sample-for-nexus.git'
         } 
