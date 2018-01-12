@@ -29,11 +29,8 @@ try{
         
                 }
                 
-                stage('Build'){
-                        //sh 'mvn build'
-                } 
-                stage('Deploy'){
-                        //sh 'oc deploy'
+                stage('Build e Deploy'){
+                        openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
                 } 
                 
                 stage('Test con Selenium'){
