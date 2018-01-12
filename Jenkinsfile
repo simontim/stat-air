@@ -12,7 +12,7 @@ try{
         
                         //input ''
         
-                        def scannerHome = tool 'scanner';
+                        def scannerHome = tool 'scanner 3.0';
     
                         println("${scannerHome}")
     
