@@ -41,13 +41,13 @@ try{
                 
           
                 stage('Build e Deploy'){
-                           if (qg.status = 'OK') {   
+                           if (qg.status == 'OK') {   
                         openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
                            }
                 } 
                 
                 stage('Test con Selenium'){
-                           if (qg.status = 'OK') {   
+                           if (qg.status == 'OK') {   
                         //sh 'java selenium-test'
                            }
                 } 
