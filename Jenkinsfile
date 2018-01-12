@@ -27,30 +27,30 @@ try{
         
                         }
                         
-                        timeout(time:3,unit:'MINUTES'){
-                        def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+                        //timeout(time:3,unit:'MINUTES'){
+                        //def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
                          
-                        if (qg.status != 'OK') {
+                        //if (qg.status != 'OK') {
                                         
-                                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                                      //  error "Pipeline aborted due to quality gate failure: ${qg.status}"
                                        
-                                }
-                        }
+                               // }
+                       // }
         
                 }
                 
                 
           
                 stage('Build e Deploy'){
-                           if (qg.status == 'OK') {   
+                          // if (qg.status == 'OK') {   
                         openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
-                           }
+                           //}
                 } 
                 
                 stage('Test con Selenium'){
-                           if (qg.status == 'OK') {   
+                          
                         //sh 'java selenium-test'
-                           }
+                          
                 } 
                 
         }
