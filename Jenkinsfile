@@ -17,8 +17,10 @@ try{
                         println("${scannerHome}")
     
                         withSonarQubeEnv {
-            
+                                
+                        sh "pwd"
                         sh "ls"
+                               
             
                         //sh "${scannerHome}/bin/sonar-scanner"
         
