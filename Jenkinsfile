@@ -24,21 +24,21 @@ try{
             
                         //sh "${scannerHome}/bin/sonar-scanner"
         
-                        build job: 'Quality-Gate', quietPeriod: 1
+                        //build job: 'Quality-Gate', quietPeriod: 1
                                 
         
         
                         }
                         
-                       // timeout(time:3,unit:'MINUTES'){
-                        //def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+                        timeout(time:1,unit:'MINUTES'){
+                        def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
                          
-                        //if (qg.status != 'OK') {
+                        if (qg.status != 'OK') {
                                         
-                          //              error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
                                        
-                            //    }
-                        //}
+                                }
+                        }
         
                 }
                 
