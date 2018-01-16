@@ -20,9 +20,9 @@ try{
             
                         sh "ls"
             
-                        sh "${scannerHome}/bin/sonar-scanner"
+                        //sh "${scannerHome}/bin/sonar-scanner"
         
-                        //build job: 'Quality-Gate', quietPeriod: 1
+                        build job: 'Quality-Gate', quietPeriod: 1
                                 
         
         
