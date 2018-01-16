@@ -22,7 +22,7 @@ try{
             
                         sh "${scannerHome}/bin/sonar-scanner"
         
-                        //build job: 'Quality-Gate', quietPeriod: 1
+                        build job: 'Quality-Gate', quietPeriod: 1
         
         
                         }
@@ -42,9 +42,9 @@ try{
                 
           
                 stage('Build e Deploy'){
-                          // if (qg.status == 'OK') {   
+                        
                         openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
-                           //}
+                 
                 } 
                 
                 stage('Test con Selenium'){
