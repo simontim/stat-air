@@ -27,9 +27,10 @@ try{
                         //build job: 'Quality-Gate', quietPeriod: 1
                                 
         
-        
                         }
-                        
+                }
+                
+                stage('Controllo Quality Gate'){
                         timeout(time:1,unit:'MINUTES'){
                         def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
                          
