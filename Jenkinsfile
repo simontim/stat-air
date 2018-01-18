@@ -37,8 +37,8 @@ try{
                         
                         def qgate = readJSON file: 'qg.json'
                         echo "${qgate.projectStatus.status}"
-                        
-                                if ( assert qgate.projectStatus.status != 'OK') {
+                        //assert qgate.projectStatus.status != 'OK'
+                                if ( qgate.projectStatus.status != 'OK') {
                                         
                                         error "Pipeline aborted due to quality gate failure. ${qgate.projectStatus}"
                                        
