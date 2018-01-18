@@ -33,7 +33,7 @@ try{
                 stage('Controllo Quality Gate'){
                         timeout(time:1,unit:'MINUTES'){
                         //def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-                        sh 'curl 172.30.218.175:9000/api/qualitygates/project_status?projectKey=sample%3Awebapp >> quality-gate.json'
+                        sh 'curl 172.30.218.175:9000/api/qualitygates/project_status?projectKey=sample%3Awebapp > quality-gate.json'
                         
                         def qgate = readJSON file: 'qg.json'
                         echo "${qgate.projectStatus.status}"
