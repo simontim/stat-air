@@ -36,13 +36,13 @@ try{
                         sh 'curl 172.30.218.175:9000/api/qualitygates/project_status?projectKey=sample%3Awebapp > qg.json'
                         
                         def qgate = readJSON file: 'qg.json'
-                        echo "${qgate.projectStatus.status}"
-                        //assert qgate.projectStatus.status != 'OK'
-                                if ( qgate.projectStatus.status != 'OK') {
+                        echo "${qgate.projectStatus}"
+                        assert qgate.projectStatus.status == 'OK'
+                                //if ( qgate.projectStatus.status != 'OK') {
                                         
-                                        error "Pipeline aborted due to quality gate failure. ${qgate.projectStatus}"
+                                        //error "Pipeline aborted due to quality gate failure. ${qgate.projectStatus}"
                                        
-                                }
+                                //}
                         }
         
                 }
