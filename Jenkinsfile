@@ -32,11 +32,12 @@ try{
                 
                 stage('Controllo Quality Gate'){
                         timeout(time:1,unit:'MINUTES'){
-                        def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
-                         
-                        if (qg.status != 'OK') {
+                        //def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+                        sh 'curl 172.30.218.175:9000/api/qualitygates/project_status?projectKey=sample%3Awebapp >> quality-gate.json'
+                        
+                        if (sh 'cut -d \" -f 6 quality-gate.json'  != 'OK') {
                                         
-                                        error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                                        error "Pipeline aborted due to quality gate failure."
                                        
                                 }
                         }
