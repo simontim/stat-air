@@ -34,7 +34,7 @@ try{
                         timeout(time:1,unit:'MINUTES'){
                         //def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
                                 sleep 5
-                                sh 'curl 172.30.218.175:9000/api/qualitygates/project_status?projectKey=sample%3Awebapp > qg.json'
+                                sh 'curl sonarqube:9000/api/qualitygates/project_status?projectKey=sample%3Awebapp > qg.json'
                                            
                                 def qgate = readJSON file: 'qg.json'
                         
@@ -53,7 +53,7 @@ try{
                 
           
                 stage('Build e Deploy'){
-                        
+                        //change webexampl with your app name
                         openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
                  
                 } 
