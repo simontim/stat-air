@@ -54,13 +54,36 @@ try{
           
                 stage('Build e Deploy'){
                         //change webexampl with your app name
-                        openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
+                        
+                        //openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
                  
                 } 
                 
                 stage('Test con Selenium'){
-                          
-                        //sh 'java selenium-test'
+                        
+                        timeout(time:2,unit:'MINUTES'){
+                                
+                                sleep 5
+                                
+                                sh 'curl -k -H "Authorization: Bearer Dh_LvUqRu3LuRDFfZxpUh-yLzKPsUP_LmUREdmS3k6c" -H "Accept: application/json" https://156.54.176.37:8443/api/v1/namespaces/antprova/pods/badpod > pod.json'
+     
+                                def podstatus = readJSON file: 'pod.json'    
+                                
+                                //openshiftVerifyService apiURL: '', authToken: '', namespace: '', svcName: '', verbose: 'false'
+     
+                                echo "${podstatus.status.containerStatuses[0].ready}" //in the deployment config if there is a readiness probe
+                                    
+                                while(assert podstatus.status.containerStatuses[0].ready == false) {
+                                
+                                        echo "ciao"
+                                        
+                                }
+                                
+                                //sh 'python test.selenium'
+                                echo "a questo punto partono i test con selenium"
+                        
+                        }
+                        
                           
                 } 
                 
