@@ -75,11 +75,11 @@ try{
      
                                 echo "${podstatus.status.containerStatuses[0].ready}" //in the deployment config if there is a readiness probe
                                     
-                                while(assert podstatus.status.containerStatuses[0].ready == false) {
+                                //while(assert podstatus.status.containerStatuses[0].ready == false) {
                                 
-                                        echo "ciao"
+                                  //      echo "ciao"
                                         
-                                }
+                                //}
                                 
                                 //sh 'python test.selenium'
                                 echo "a questo punto partono i test con selenium"
