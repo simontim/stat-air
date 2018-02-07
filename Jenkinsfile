@@ -65,15 +65,15 @@ try{
                                 
                                 sleep 5
                                 
-                                sh 'TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)'
+                                //sh 'TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)'
                                 
-                                sh 'curl -k -H "Authorization: Bearer $TOKEN" -H "Accept: application/json" https://156.54.176.37:8443/api/v1/namespaces/jenkins/pods/webexampl-21-sobmg > pod.json'
+                                //sh 'curl -k -H "Authorization: Bearer $TOKEN" -H "Accept: application/json" https://156.54.176.37:8443/api/v1/namespaces/jenkins/pods/webexampl-21-sobmg > pod.json'
      
-                                def podstatus = readJSON file: 'pod.json'    
+                                //def podstatus = readJSON file: 'pod.json'    
                                 
                                 //openshiftVerifyService apiURL: '', authToken: '', namespace: '', svcName: '', verbose: 'false'
      
-                                echo "${podstatus.status.containerStatuses[0].ready}" //in the deployment config if there is a readiness probe
+                                //echo "${podstatus.status.containerStatuses[0].ready}" //in the deployment config if there is a readiness probe
                                     
                                 //while(assert podstatus.status.containerStatuses[0].ready == false) {
                                 
