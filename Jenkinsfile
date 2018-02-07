@@ -65,7 +65,9 @@ try{
                                 
                                 sleep 5
                                 
-                                sh 'curl -k -H "Authorization: Bearer Dh_LvUqRu3LuRDFfZxpUh-yLzKPsUP_LmUREdmS3k6c" -H "Accept: application/json" https://156.54.176.37:8443/api/v1/namespaces/antprova/pods/badpod > pod.json'
+                                sh 'TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)'
+                                
+                                sh 'curl -k -H "Authorization: Bearer $TOKEN" -H "Accept: application/json" https://156.54.176.37:8443/api/v1/namespaces/jenkins/pods/webexampl-21-sobmg > pod.json'
      
                                 def podstatus = readJSON file: 'pod.json'    
                                 
@@ -81,6 +83,8 @@ try{
                                 
                                 //sh 'python test.selenium'
                                 echo "a questo punto partono i test con selenium"
+                                
+                                sh 'curl -X POST http://console-selenium-02.app.ocp.selfdcopen-rh.nuvolaitaliana.it/job/test/build?token=simone'
                         
                         }
                         
