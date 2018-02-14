@@ -55,7 +55,7 @@ try{
                 stage('Build e Deploy'){
                         //change webexampl with your app name
                         
-                        //openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
+                        openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
                  
                 } 
                 
