@@ -1,6 +1,6 @@
 try{
         node {
-                stage('Aggiornamenti SCM '){
+                stage('Cercando Aggiornamenti software'){
                         git 'https://github.com/simontim/stat-air.git'
                 } 
    
