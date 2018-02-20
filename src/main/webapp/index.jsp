@@ -13,6 +13,8 @@
   
 <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">Premi per visualizzare data e ora</button>
   
+<button type="button" onclick="document.getElementById('demo').innerHTML = UserAction()">Premi per visualizzare data e ora</button>
+  
 <p id="demo"></p>
   
 </body>
