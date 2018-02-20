@@ -55,7 +55,7 @@ try{
                 stage('Build e Deploy'){
                         //change webexampl with your app name
                         
-                        openshiftBuild(buildConfig: 'webexampl', showBuildLogs: 'true')
+                        openshiftBuild(buildConfig: 'webapp', showBuildLogs: 'true')
                  
                 } 
                 
@@ -83,8 +83,8 @@ try{
                                 
                                 //sh 'python test.selenium'
                                 echo "a questo punto partono i test con selenium"
-                                
-                                sh 'curl -X POST http://console-selenium-02.app.ocp.selfdcopen-rh.nuvolaitaliana.it/job/test/build?token=simone'
+                                build job: 'test-suite', quietPeriod: 10 //per una visualizzazione complessiva degli esiti si usa jenkins come console
+                                //sh 'curl -X POST http://console-selenium-02.app.ocp.selfdcopen-rh.nuvolaitaliana.it/job/test/build?token=simone'
                         
                         }
                         
