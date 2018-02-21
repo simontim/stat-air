@@ -13,7 +13,7 @@
   
 <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">Premi per visualizzare le statistiche complete</button>
   
-<button type="button" onclick="document.getElementById('demo').innerHTML = UserAction()">Premi per visualizzare statistiche parziali</button>
+<button type="button" onclick="document.getElementById('demo').innerHTML = ">Premi per visualizzare statistiche parziali</button>
   
 <p id="demo"></p>
   
