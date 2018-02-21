@@ -11,9 +11,9 @@
 }
 </script>
   
-<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">Premi per visualizzare data e ora</button>
+<button type="button" onclick="document.getElementById('demo').innerHTML = Date()">Premi per visualizzare le statistiche complete</button>
   
-<button type="button" onclick="document.getElementById('demo').innerHTML = UserAction()">Premi per visualizzare data e ora</button>
+<button type="button" onclick="document.getElementById('demo').innerHTML = UserAction()">Premi per visualizzare statistiche parziali</button>
   
 <p id="demo"></p>
   
