@@ -3,7 +3,7 @@
 <body>
 <h2>Statistiche AirWatch</h2>
 
-<% out.println("<h1>Prova</h1>"); %> 
+<% out.println("<h1>Ciao Torino</h1>"); %> 
   
 <p id="demo"></p>
   
