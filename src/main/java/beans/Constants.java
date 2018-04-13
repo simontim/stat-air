@@ -1,4 +1,4 @@
-package beans;
+package org.o7planning.tutorial.beans;
 
 public class Constants {
  
