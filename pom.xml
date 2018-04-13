@@ -7,20 +7,21 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>test Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+  
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
     
     <!-- https://mvnrepository.com/artifact/org.apache.tomcat/tomcat-servlet-api -->
-<dependency>
-    <groupId>org.apache.tomcat</groupId>
-    <artifactId>tomcat-servlet-api</artifactId>
-    <version>8.0.15</version>
-</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+    
 
   </dependencies>
   <build>
